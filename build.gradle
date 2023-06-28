@@ -32,8 +32,9 @@ test {
     useJUnitPlatform()
 }
 
+String dockerHarbor = 'harbor.blog.pro'
 String dockerHubUsernameProperty = findProperty('dockerHubUsername') ?: 'tkgregory'
-String imageName = "${dockerHubUsernameProperty}/spring-boot-api-example:$version"
+String imageName = "${dockerHarbor}/${dockerHubUsernameProperty}/spring-boot-api-example:$version"
 
 docker {
     name imageName
