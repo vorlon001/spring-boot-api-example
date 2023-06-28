@@ -32,8 +32,7 @@ test {
     useJUnitPlatform()
 }
 
-val environment = System.getenv()
-val REGESTRY = environment["REGESTRY"] ?: "docker.io"
+String myEnv = System.getenv("REGESTRY") ?: "docker.io";
 
 String dockerHarbor = "${REGESTRY}"
 String dockerHubUsernameProperty = findProperty('dockerHubUsername') ?: 'test'
