@@ -32,6 +32,9 @@ test {
     useJUnitPlatform()
 }
 
+val environment = System.getenv()
+val myVariable = environment["REGESTRY"] ?: "my-default-value"
+
 String dockerHarbor = 'harbor.iblog.pro'
 String dockerHubUsernameProperty = findProperty('dockerHubUsername') ?: 'test'
 String imageName = "${dockerHarbor}/${dockerHubUsernameProperty}/spring-boot-api-example:$version"
