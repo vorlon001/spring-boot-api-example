@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    environment {
-        HARBOR = credentials('a942c94a-b198-47de-bbc3-c4b7d9da6a89')
-    }
     triggers {
         pollSCM '* * * * *'
     }
@@ -24,10 +21,10 @@ pipeline {
         }
         stage('Push Docker image') {
             environment {
-                DOCKER_HUB_LOGIN = credentials('docker-hub')
+                HARBOR = credentials('a942c94a-b198-47de-bbc3-c4b7d9da6a89')
             }
             steps {
-                sh 'docker login --username=$HARBOR_USR --password=$HARBOR_PSW'
+                sh 'docker login harbor.iblog.pro --username=$HARBOR_USR --password=$HARBOR_PSW'
                 sh './gradlew dockerPush'
             }
         }
