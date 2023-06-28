@@ -33,7 +33,7 @@ test {
 }
 
 String dockerHarbor = 'harbor.blog.pro'
-String dockerHubUsernameProperty = findProperty('dockerHubUsername') ?: 'tkgregory'
+String dockerHubUsernameProperty = findProperty('dockerHubUsername') ?: 'test'
 String imageName = "${dockerHarbor}/${dockerHubUsernameProperty}/spring-boot-api-example:$version"
 
 docker {
