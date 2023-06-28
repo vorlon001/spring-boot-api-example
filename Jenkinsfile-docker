@@ -21,7 +21,8 @@ pipeline {
         }
         stage('Push Docker image') {
             environment {
-                HARBOR = credentials('a942c94a-b198-47de-bbc3-c4b7d9da6a89')
+                HARBOR = credentials('HARBORAUTH')
+                REGESTRY  = credentials('harboriblog')
             }
             steps {
                 sh 'docker login harbor.iblog.pro --username=$HARBOR_USR --password=$HARBOR_PSW'
