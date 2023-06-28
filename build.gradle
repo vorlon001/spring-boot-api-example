@@ -32,9 +32,9 @@ test {
     useJUnitPlatform()
 }
 
-String myEnv = System.getenv("REGESTRY") ?: "docker.io";
+String harbor = System.getenv("REGESTRY") ?: "docker.io";
 
-String dockerHarbor = "${REGESTRY}"
+String dockerHarbor = "${harbor}"
 String dockerHubUsernameProperty = findProperty('dockerHubUsername') ?: 'test'
 String imageName = "${dockerHarbor}/${dockerHubUsernameProperty}/spring-boot-api-example:$version"
 
